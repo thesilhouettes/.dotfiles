@@ -1,0 +1,6 @@
+#! /bin/sh
+
+total_pkgs=$(pacman -Q | wc -l)
+updates=$(checkupdates | wc -l)
+
+printf "%s (%s up)" "$total_pkgs" "$updates"

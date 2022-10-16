@@ -1,0 +1,17 @@
+* {
+    /* main blackground */
+    bg-col:  #17252a;
+    bg-col-light: #17252a;
+    /* the border around the rofi prompt */
+    border-col: #17252a;
+    /* background color of the selected col */
+    selected-col: #17252a;
+    blue: #92bbed;
+    /* text colour of not selected role */
+    fg-col: #c2cae2;
+    /* text colour of selected row */
+    fg-col2: #e2d06a;
+    grey: #d9d7d6;
+    width: 800;
+}
+

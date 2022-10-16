@@ -1,0 +1,13 @@
+#! /bin/sh
+
+name=$(xtitle)
+len=${#name}
+
+if [ "$len" -ge 35 ]; then
+	truncated=$(echo "$name" | cut -b 1-35)
+	final_name="$truncated..."
+else
+	final_name="$name"
+fi
+
+printf "%s" "${final_name}"

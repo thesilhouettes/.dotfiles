@@ -1,0 +1,20 @@
+#! /bin/sh
+
+CURRENT=$(asusctl profile -p | sed 's/Active profile is \(.*\)/\1/')
+
+case $1 in
+status)
+	echo "The current profile is $CURRENT"
+	exit 0
+	;;
+esac
+
+# is the fan-curve of the current profile enabled?
+# disable the output of grep with q
+if asusctl fan-curve --get-enabled | grep "$CURRENT" -q; then
+	asusctl fan-curve -m "$CURRENT" -e false
+	echo "The curve $CURRENT is disabled"
+else
+	asusctl fan-curve -m "$CURRENT" -e true
+	echo "The curve $CURRENT is enabled."
+fi

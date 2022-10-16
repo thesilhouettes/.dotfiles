@@ -1,0 +1,64 @@
+{
+  // terminal settings
+  // force vscode to run zsh as a login shell
+  // so ~/.zprofile will be read
+  "terminal.integrated.profiles.linux": {
+    "zsh": { "path": "/bin/zsh", "args": ["-l", "-i"] }
+  },
+  "workbench.startupEditor": "none",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  // formatters
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.autoClosingQuotes": "never",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  "emmet.includeLanguages": {
+    "nunjucks": "html"
+  },
+  "editor.linkedEditing": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.wordWrapColumn": 80,
+  "editor.wordWrap": "wordWrapColumn",
+
+  // vim key bindings
+  "vim.leader": "-",
+  "vim.useSystemClipboard": true,
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    },
+    {
+      "before": ["<C-d>"],
+      "after": ["<Esc>", "d", "d", "i"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "<leader>"],
+      "after": [":", "t", "a", "b", "p", "<cr>"]
+    },
+    {
+      "before": ["<leader>", "="],
+      "after": [":", "t", "a", "b", "n", "<cr>"]
+    }
+  ],
+  "files.exclude": {
+    "**/.DS_Store": false,
+    "**/.git": false,
+    "**/.hg": false,
+    "**/.svn": false,
+    "**/CVS": false,
+    "**/Thumbs.db": false
+  },
+  "workbench.colorTheme": "GitHub Dark Default",
+  "window.zoomLevel": 1
+}

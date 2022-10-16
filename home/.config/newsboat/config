@@ -1,0 +1,35 @@
+# general settings
+auto-reload yes
+
+# unbind keys
+unbind-key ENTER
+unbind-key j
+unbind-key k
+unbind-key J
+unbind-key K
+
+# don't show errors
+bind-key o open-in-browser
+
+# bind keys - vim style
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
+
+# colours
+color listfocus blue default bold
+color listnormal white default
+color listfocus_unread blue default bold
+color listnormal_unread green default
+color info yellow default
+
+# Use --- (title) --- as a separator
+highlight feedlist "---.*---" yellow default bold
+highlight feedlist ".*0/0.." default default invis
+
+# open with browser
+browser "brave %u &"
+
+# open with mpv
+macro y set browser "mpv %u" ; open-in-browser ; set browser "brave %u"

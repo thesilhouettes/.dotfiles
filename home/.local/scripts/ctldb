@@ -1,0 +1,47 @@
+#! /bin/sh
+
+case "$1" in
+  maria)
+    systemctl status mariadb | grep -q "inactive"
+    if [[ $? -eq 0 ]]; then
+      sudo systemctl enable --now mariadb
+      [[ $? -eq 0 ]] && echo "Restarting MariaDB service" || echo "Cannot
+      restart MariaDB service"
+    else
+      sudo systemctl stop mariadb
+      sudo systemctl disable mariadb
+      [[ $? -eq 0 ]] && echo "Stopping MariaDB service" || echo "Cannot stop
+      MariaDB service"
+    fi
+    ;;
+  post)
+    systemctl status postgresql | grep -q "inactive"
+    if [[ $? -eq 0 ]]; then
+      sudo systemctl enable --now postgresql
+      [[ $? -eq 0 ]] && echo "Restarting Postgres service" || echo "Cannot
+      restart Postgres service"
+    else
+      sudo systemctl stop postgresql
+      sudo systemctl disable postgresql
+      [[ $? -eq 0 ]] && echo "Stopping Postgres service" || echo "Cannot stop
+      Posrgres service"
+    fi
+    ;;
+  redis)
+    systemctl status redis | grep -q "inactive"
+    if [[ $? -eq 0 ]]; then
+      sudo systemctl enable --now redis
+      [[ $? -eq 0 ]] && echo "Restarting Redis service" || echo "Cannot
+      restart Redis service"
+    else
+      sudo systemctl stop redis
+      sudo systemctl disable redis
+      [[ $? -eq 0 ]] && echo "Stopping Redis service" || echo "Cannot stop
+      Redis service"
+    fi
+    ;;
+  *)
+    echo "I don't know what to do?"
+    exit 1
+    ;;
+esac

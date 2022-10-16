@@ -1,0 +1,14 @@
+---Stats---
+https://distrowatch.com/news/dw.xml news
+---Blogs---
+https://lukesmith.xyz/rss.xml blog "~Luke Smith"
+https://hermanradtke.com/atom.xml "~Herman Radtke"
+---Twitter--
+https://nitter.net/docm77/with_replies/rss hermitcraft tw # docm
+https://nitter.net/mpocock1/with_replies/rss tw # matt pocock typescript
+--Podcasts--
+# https://rss.art19.com/merriam-websters-word-of-the-day dict # merriam
+https://anchor.fm/s/1fe5323c/podcast/rss # japanese
+---Myself---
+https://thesilhouettes.github.io/rss.xml # my blog
+http://localhost:3000/rss.xml # testing

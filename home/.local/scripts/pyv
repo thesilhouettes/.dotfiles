@@ -1,0 +1,73 @@
+#! /bin/sh
+
+VENV_FOLDER="$HOME/.local/python-env"
+
+usage() {
+	cat <<EOF
+A simple shell script for managing virtual environments in python
+
+usage: pyv <action> <name>
+
+add: create a new venv with name
+rm: delete a venv with name
+ls: list all venvs
+act: activate a venv with name
+if you need to deactivate, just type deactivate
+EOF
+}
+
+missingname() {
+	echo "<name> argument is missing..."
+	usage
+}
+
+add() {
+	if [ -z "$1" ]; then
+		missingname
+		exit 1
+	fi
+	virtualenv "$VENV_FOLDER/$1"
+	# this source will not affect the mother process
+	. "$VENV_FOLDER/$1/bin/activate"
+	# so that nvim works correctly
+	pip install pynvim debugpy
+}
+
+act() {
+	if [ -z "$1" ]; then
+		missingname
+		exit 1
+	fi
+	cmd=". $VENV_FOLDER/$1/bin/activate"
+	# use the clipboard selection
+	printf "%s" "$cmd" | xclip -sel clip
+	echo "source command copied to clipboard, please paste it."
+}
+
+remove() {
+	if [ -z "$1" ]; then
+		missingname
+		exit 1
+	fi
+	if rm -r "$VENV_FOLDER/$1"; then
+		echo "$1 deleted"
+	fi
+}
+
+case "$1" in
+add)
+	add "$2"
+	;;
+act)
+	act "$2"
+	;;
+ls)
+	ls -1 "$VENV_FOLDER"
+	;;
+rm)
+	remove "$2"
+	;;
+*)
+	usage
+	;;
+esac

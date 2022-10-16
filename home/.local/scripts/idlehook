@@ -1,0 +1,14 @@
+#! /bin/sh
+
+xidlehook \
+	--not-when-fullscreen \
+	--not-when-audio \
+	--timer 300 \
+	'brillo -U 30; notify-send "The machine will be locked after twenty seconds of inactivity."' \
+	'brillo -A 30' \
+	--timer 20 \
+	'brillo -A 30; betterlockscreen -l' \
+	'' \
+	--timer 120 \
+	'systemctl suspend' \
+	''

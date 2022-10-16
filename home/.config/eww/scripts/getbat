@@ -1,0 +1,38 @@
+#! /bin/sh
+
+if [ -z "$1" ]; then
+	name="$(upower -e | grep BAT)"
+else
+	name="$1"
+fi
+
+lines=$(
+	cat <<'EOF'
+function ltrim(s) { sub(/^[ \t\r\n]+/, "", s); return s }
+
+/percentage/{
+   percent = ltrim($2)
+}
+
+/time to empty/{
+  time = ltrim($2)
+}
+
+/state/{
+  if ($2 == "charging") {
+    charging = 1 
+  }
+}
+
+END {
+  if (charging) {
+    printf("%s", percent)
+  }
+  else {
+    printf("%s (%s left)", percent, time)
+  }
+}
+EOF
+)
+
+upower -i "$name" | awk -F':' "$lines"

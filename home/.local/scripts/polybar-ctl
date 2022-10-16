@@ -1,0 +1,26 @@
+#! /usr/bin/env bash
+
+has_ethernet() {
+	ls /sys/class/net -1 | grep -e "enp" -e "eno" -e "eth"
+}
+
+start_polybar() {
+	(has_ethernet && polybar bar-with-ethernet) || polybar bar
+}
+
+case "$1" in
+r | restart)
+	polybar-msg cmd quit
+	start_polybar
+	;;
+s | start)
+	start_polybar
+	;;
+t | terminate)
+	polybar-msg cmd quit
+	;;
+*)
+	echo "I am not sure what you want to do?"
+	exit 1
+	;;
+esac

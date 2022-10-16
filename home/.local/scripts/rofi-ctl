@@ -1,0 +1,28 @@
+#! /bin/sh
+
+LOCK="Lock 🔒"
+SUSPEND="Suspend 💤"
+SHUTDOWN="Shutdown 🔌"
+RESTART="Restart 💻"
+LOGOUT="Logout 🔑"
+
+chosen=$(printf "%s\n%s\n%s\n%s\n%s" "$LOCK" "$SUSPEND" "$SHUTDOWN" "$RESTART" "$LOGOUT" | rofi -p "Power" -dmenu)
+
+case "$chosen" in
+"$LOCK")
+	betterlockscreen -l
+	;;
+"$SUSPEND")
+	systemctl suspend
+	;;
+"$SHUTDOWN")
+	shutdown now
+	;;
+"$RESTART")
+	reboot
+	;;
+"$LOGOUT")
+	bspc quit
+	;;
+*) ;;
+esac

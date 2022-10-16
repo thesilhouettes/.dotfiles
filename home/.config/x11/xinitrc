@@ -1,0 +1,20 @@
+#! /bin/sh
+
+XRESOURCES="${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources"
+
+# merge the xresources if there is one
+[ -f "$XRESOURCES" ] && xrdb -merge "$XRESOURCES"
+
+ibus-daemon -drxR
+
+# decrease keyboard repeat delay and increase repeat rate
+(sleep 10s && xset r rate 200 45) &
+
+# start
+# don't start anything if nothing is supplied
+case "$1" in
+i3) exec i3 ;;
+awe) exec awesome ;;
+gnome) exec gnome-session ;;
+bs) exec bspwm ;;
+esac

@@ -1,0 +1,7 @@
+#! /bin/sh
+
+# in demnu mode, rofi dumps the selection to stdout
+CONTENT=$(rofi -p "To Clipboard: " -dmenu)
+
+# copy the text into the system clipboard using xclip
+echo -n "$CONTENT" | xclip -sel clip

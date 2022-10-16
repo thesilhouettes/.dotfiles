@@ -1,0 +1,104 @@
+(defwidget bar []
+  (centerbox :class "main-box"  :orientation "h"
+    (workspaces)
+    (middle)
+    (sidestuff)
+  ))
+
+(defwidget middle []
+  (box :class "middle"
+       :orientation "h"
+       :halign "end"
+       :space-evenly false
+    (music)
+    (stuff
+      :label ""
+      :value winname)
+  ))
+
+(defwidget sidestuff []
+  (box :class "sidestuff" 
+       :orientation "h" 
+       :halign "end"
+       :space-evenly false
+    (stuff
+      :label "🔥"
+      :value "${round(EWW_RAM["used_mem"] / 1024 / 1024, 2)} GB (${round(EWW_RAM["used_mem_perc"], 1)}%)"
+    )
+    (stuff
+      :label "⚙"
+      :value "${EWW_TEMPS["CPU"]} C"
+    )
+    (stuff 
+      :label "🔊"
+      :value volume)
+    (stuff
+      :label "📅"
+      :value time)
+    (stuff
+      :label "🔋"
+      :value battery)
+    (stuff
+      :label "📦"
+      :value package)
+  ))
+
+(defvar current-workspace 1)
+(defvar workspace-numbers "[1, 2, 3, 4, 5, 6, 7, 8, 9, 0]")
+
+(defwidget workspaces []
+  (box :class "workspaces"
+       :orientation "h"
+       :halign "start"
+    (for entry in workspace-numbers
+      (button :class {entry == current-workspace ? "active-workspace" : ""} :onclick "wmctrl -s ${entry}" entry) 
+    )))
+
+(defwidget music []
+  (box :class "music"
+       :orientation "h"
+       :space-evenly false
+       :halign "center"
+    {music != "" ? "🎵${music}" : ""}))
+
+(defwidget stuff [label value]
+  (box :orientation "h"
+       :class "stuff"
+       :halign "start"
+       :space-evenly false
+    (box :class "label" label)
+    value
+  )
+)
+
+(deflisten music :initial ""
+  "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
+
+(defpoll volume :interval "300ms"
+  "scripts/getvol")
+
+(defpoll time :interval "10s"
+  "date '+%H:%M %d/%m/%Y'")
+
+(defpoll battery :interval "10s"
+  "scripts/getbat"
+)
+
+(defpoll package :interval "30m"
+  "scripts/getpkg"
+)
+
+(defpoll winname :interval "50ms"
+  "scripts/getwin"
+)
+
+(defwindow bar
+  :monitor 0
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :height "40px"
+                      :width "100%"
+                      :anchor "top center")
+  :reserve (struts :side "top" :distance "3%")
+  (bar))

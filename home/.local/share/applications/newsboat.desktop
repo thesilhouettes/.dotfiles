@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Newsboat
+Terminal=true
+Exec=newsboat
+Comment=Launches the newsboay rss reader
+Icon=utilities-terminal
+Categories=ConsoleOnly

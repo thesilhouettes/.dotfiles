@@ -1,0 +1,5 @@
+/* Xft.dpi: 147.35  */
+
+/* the optimal dpi is too big for my taste */
+/* it is 90% of the optimal value */
+Xft.dpi: 132.615

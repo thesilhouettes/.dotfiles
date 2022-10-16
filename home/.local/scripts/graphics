@@ -1,0 +1,20 @@
+#! /usr/bin/env bash
+
+case "$1" in
+i | integrated)
+	sudo sed -i '/mode/c\  "mode": "Integrated",' /etc/supergfxd.conf
+	;;
+h | hybrid)
+	sudo sed -i '/mode/c\  "mode": "Hybrid",' /etc/supergfxd.conf
+	;;
+c | compute)
+	sudo sed -i '/mode/c\  "mode": "Compute",' /etc/supergfxd.conf
+	;;
+d | dedicated)
+	sudo sed -i '/mode/c\  "mode": "Dedicated",' /etc/supergfxd.conf
+	;;
+*)
+	echo "What are you trying to do?" >&2
+	exit 1
+	;;
+esac

@@ -1,0 +1,19 @@
+#! /bin/sh
+
+ACTION="${1:-full}"
+
+FILENAME="$(realpath ~/Pictures/screenshots)/$(date "+%Y-%m-%d_%H-%M-%S").png"
+
+case $ACTION in
+full)
+	scrot -F "$FILENAME" --freeze
+	;;
+select)
+	scrot -F "$FILENAME" --freeze --select --line mode=edge
+	notify-send "Screenshot saved at $FILENAME"
+	;;
+*)
+	echo "Unknown action! Please try again"
+	exit 1
+	;;
+esac

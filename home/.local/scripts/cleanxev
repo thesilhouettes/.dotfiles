@@ -1,0 +1,5 @@
+#! /bin/sh
+
+# stolen from https://wiki.archlinux.org/title/Keyboard_input#Identifying_keycodes_in_Xorg
+# this will ONLY print key code and key sym
+xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'

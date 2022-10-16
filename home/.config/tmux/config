@@ -1,0 +1,40 @@
+# so that nvim works correctly
+set-option -sg escape-time 10
+set-option -g focus-events on
+set -g default-terminal "tmux-256color"
+# set -ag terminal-overrides ",xterm-256color:RGB"
+set-option -ga terminal-overrides ',xterm-256color:Tc'
+
+
+# C-a is closer than C-b
+unbind C-b
+set-option -g prefix C-a
+bind-key C-a send-prefix
+
+# reload the config!
+bind r source-file ~/.config/tmux/config
+
+# switch panes with vim-like key bindings
+bind l select-pane -R
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+
+# resize with capital letters
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+# enable mouse control on panes, windows and all kinds of stuff
+set -g mouse on
+
+# status bar colours and such
+set -g status-position top
+set -g status-justify left
+set -g status-style bg=default
+set -g status-left ''
+set -g status-right ''
+set -g status-right-length 50
+set -g status-left-length 20
+
