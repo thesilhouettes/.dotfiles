@@ -27,7 +27,9 @@ end
 
 M.default_on_attach = function(client, bufnr)
   M.base_on_attach(client, bufnr)
-  client.resolved_capabilities.document_formatting = false
+  client.server_capabilities.documentFormattingProvider = false
+  -- the line below is deprecated!!!
+  -- client.server_capabilities.document_formatting = false
 end
 
 return M

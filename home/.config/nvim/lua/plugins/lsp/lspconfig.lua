@@ -9,8 +9,9 @@ if not ok then
 end
 
 -- add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 
@@ -80,9 +81,8 @@ local servers = {
   pyright = {},
   -- I wish this works but apparently not
   -- grammarly = {},
-  jdtls = {},
+  -- jdtls = {},
 }
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- check if there is a deno.json, if yes don't start the tsserver
 local cwd = vim.fn.getcwd()
@@ -97,7 +97,7 @@ if err or not exists then
     init_options = require("nvim-lsp-ts-utils").init_options,
     on_attach = function(client, bufnr)
       base_on_attach(client, bufnr)
-      client.resolved_capabilities.document_formatting = false
+      client.server_capabilities.documentFormattingProvider = false
       local ts_utils = require "nvim-lsp-ts-utils"
       ts_utils.setup {
         update_imports_on_move = true,

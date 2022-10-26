@@ -268,7 +268,7 @@ snippet fa "DFA or NFA" b
 \begin{figure}[h]
 	\centering
 	\label{fig:$1}
-	\begin{tikzpicture}[auto,>={Stealth[round]}]
+	\begin{tikzpicture}[node distance=2cm,auto,>={Stealth[round]}]
 	$0
 	\end{tikzpicture}
 \end{figure}
@@ -299,7 +299,15 @@ snippet ed "state edges" b
 endsnippet
 
 snippet led "state edge loop above" b
-($1) edge [loop above] node {\$$2\$} ($3)$0
+($1) edge [loop above] node {\$$2\$} ($1)$0
+endsnippet
+
+snippet ped "pushdown automata edge multiple label" b
+($1) edge [loop above] node {$
+\begin{aligned}
+$2\\[-0.7ex]
+\end{aligned}
+$} ($1)$0
 endsnippet
 
 snippet or "right of" i

@@ -99,12 +99,6 @@ require("packer").startup(function(use)
   -- colour rgb strings
   use "norcalli/nvim-colorizer.lua"
 
-  -- integrated terminal like vscode
-  use {
-    "akinsho/toggleterm.nvim",
-    tag = "v1.*",
-  }
-
   -- formatting (also with prettier)
   use "jose-elias-alvarez/null-ls.nvim"
 
@@ -134,9 +128,6 @@ require("packer").startup(function(use)
   -- diagnostics window
   use "folke/trouble.nvim"
 
-  -- spell checker with lsp
-  -- use "lewis6991/spellsitter.nvim"
-
   -- rainbow colour brackets
   use "p00f/nvim-ts-rainbow"
 
@@ -145,9 +136,6 @@ require("packer").startup(function(use)
 
   -- note taking plugin
   use "jakewvincent/mkdnflow.nvim"
-
-  -- cmake building tool
-  -- use "Shatur/neovim-cmake"
 
   -- lua docs
   use "nanotee/luv-vimdocs"
@@ -159,8 +147,6 @@ require("packer").startup(function(use)
   use "theHamsta/nvim-dap-virtual-text"
 
   -- use "mfussenegger/nvim-dap-python"
-  -- my own plugins...
-  -- use "/home/silhouette/.local/sources/plugins/spautocmd.nvim"
 
   if packer_bootstrap then
     require("packer").sync()
@@ -190,34 +176,8 @@ require "plugins/autopairs"
 require "plugins/autotag"
 require "plugins/indent-blankline"
 
-require "plugins/toggleterm"
 require "plugins/telescope"
 require "plugins/rich-presence"
 require "plugins/mkdnflow"
 require "plugins/articblush"
 require "plugins/illuminate"
-
--- local cmake_build = {
---   BufWrite = {
---     trigger = {
---       ":!cmake --build ./build",
---       key = "<leader>c",
---     },
---   },
--- }
---
--- local cmake_cpp_build = {
---   BufWrite = {
---     trigger = {
---       ":!cmake --build ./build",
---       key = "<leader>cpp",
---     },
---   },
--- }
-
--- require("spautocmd").setup {
---   cmds = {
---     c = cmake_build,
---     cpp = cmake_cpp_build,
---   },
--- }
