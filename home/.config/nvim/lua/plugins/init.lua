@@ -146,6 +146,9 @@ require("packer").startup(function(use)
   use "mfussenegger/nvim-dap"
   use "theHamsta/nvim-dap-virtual-text"
 
+  -- terminal
+  use "akinsho/toggleterm.nvim"
+
   -- use "mfussenegger/nvim-dap-python"
 
   if packer_bootstrap then
@@ -181,3 +184,5 @@ require "plugins/rich-presence"
 require "plugins/mkdnflow"
 require "plugins/articblush"
 require "plugins/illuminate"
+
+require "plugins/toggleterm"

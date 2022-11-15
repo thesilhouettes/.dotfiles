@@ -16,6 +16,7 @@ vim.keymap.set("n", "<M-->", "<C-w>-")
 vim.keymap.set("n", "<M-.>", "<C-w><lt>")
 vim.keymap.set("n", "<M-,>", "<C-w>>")
 vim.keymap.set("t", "jk", "<C-\\><C-n>")
+vim.keymap.set("n", "<F3>", ":nohighlight")
 
 vim.keymap.set("n", "<leader>ev", ":edit $MYVIMRC<cr>")
 vim.keymap.set("n", "<leader>sv", ":so $MYVIMRC<cr>")
@@ -50,3 +51,4 @@ require "mappings/nvim-tree"
 require "mappings/glow"
 require "mappings/trouble"
 require "mappings/dap"
+require "mappings/toggleterm"

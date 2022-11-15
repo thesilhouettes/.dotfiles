@@ -65,6 +65,7 @@ case "$chosen" in
 	;;
 "$DISCONNECT")
 	protonvpn-cli d
+	unkill
 	;;
 "$RANDOM_INSTANCE")
 	unkill

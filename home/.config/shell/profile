@@ -119,6 +119,9 @@ export NVM_DIR="$([ -z "$XDG_CONFIG_HOME" ] && printf %s "$HOME/.nvm" || printf 
 # this will make nvm work on demand
 alias nvm="unalias nvm; [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"; nvm $@"
 
+# android
+export ANDROID_HOME="$XDG_DATA_HOME/Android/Sdk"
+
 # remove duplicates - I don't know why it has so many of them??
 typeset -U PATH
 
