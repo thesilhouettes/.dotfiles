@@ -12,4 +12,5 @@ $out_dir = './build';
 $aux_dir = './build';
 
 # shell escape is for minted package
-$pdflatex = "pdflatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1 -shell-escape"
+$pdflatex = "pdflatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1 -shell-escape";
+$latex = "latex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1 -shell-escape";

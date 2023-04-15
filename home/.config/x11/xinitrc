@@ -5,10 +5,11 @@ XRESOURCES="${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources"
 # merge the xresources if there is one
 [ -f "$XRESOURCES" ] && xrdb -merge "$XRESOURCES"
 
-ibus-daemon -drxR
-
 # decrease keyboard repeat delay and increase repeat rate
 (sleep 10s && xset r rate 200 45) &
+
+# start the ibus daemon
+ibus-daemon -drxR
 
 # start
 # don't start anything if nothing is supplied

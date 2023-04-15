@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /usr/bin/env bash
 
 # in demnu mode, rofi dumps the selection to stdout
 CONTENT=$(rofi -p "To Clipboard: " -dmenu)

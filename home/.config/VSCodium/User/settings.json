@@ -9,16 +9,40 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
   // formatters
-  "[rust]": {
-    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // "[rust]": {
+  //   "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  // },
+  // "[java]": {
+  //   "editor.defaultFormatter": "redhat.java"
+  // },
   "editor.autoClosingQuotes": "never",
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
   },
   "emmet.includeLanguages": {
-    "nunjucks": "html"
+    "nunjucks": "html",
+    "njk": "html"
   },
   "editor.linkedEditing": true,
   "workbench.iconTheme": "material-icon-theme",
@@ -60,5 +84,5 @@
     "**/Thumbs.db": false
   },
   "workbench.colorTheme": "GitHub Dark Default",
-  "window.zoomLevel": 1
+  "window.zoomLevel": 1,
 }

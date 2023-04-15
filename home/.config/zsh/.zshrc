@@ -68,17 +68,16 @@ gocov() {
 }
 
 # run all go files
-gorun() {
-  go run $(ls -1 *.go | grep -v _test.go) "$@"
-}
+alias gorun='go run $(ls -1 *.go | grep -v _test.go) "$@"'
+alias gowatch='go watch go run $(ls -1 *.go | grep -v _test.go) "$@"'
 
-gowatch() {
-  go watch go run $(ls -1 *.go | grep -v _test.go) "$@"
-}
+alias newfile='touch "$1" && chmod +x "$1" && nvim "$1'
 
-newscript() {
-  touch "$1" && chmod +x "$1" && nvim "$1"
-}
+# cmake
+alias cgen='cmake -B build -S src -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_BUILD_TYPE=Debug'
+alias cmk='cmake --build build'
+alias ct='ctest --test-dir build --output-on-failure'
+alias cmt='cmk && ct'
 
 # so that homeshick can be directly invoked in the command line
 homeshick () {
