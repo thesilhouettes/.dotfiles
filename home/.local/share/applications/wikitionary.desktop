@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Thai Wikitionary
+Terminal=true
+Exec=webapps wiki
+Comment=Launches swallow, the prviate thai wikitionary program
+Icon=utilities-terminal
+Categories=ConsoleOnly

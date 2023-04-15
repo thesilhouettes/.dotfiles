@@ -1,0 +1,21 @@
+#! /usr/bin/env bash
+
+case "$1" in
+  w | work)
+    KEYNAME="lanterns"
+    ;;
+  s | school)
+    KEYNAME="school_github"
+    ;;
+  b | basic)
+    KEYNAME="github"
+    ;;
+  *)
+    echo "You need a valid key!"
+    exit 1
+    ;;
+esac
+
+shift
+echo "[INFO]: using key $KEYNAME"
+git -c core.sshCommand="ssh -i $HOME/.ssh/$KEYNAME" push "$@"

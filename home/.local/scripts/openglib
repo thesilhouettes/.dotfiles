@@ -1,0 +1,16 @@
+#! /usr/bin/env bash
+
+case "$1" in
+  "connect" | "c")
+    sudo downgrade 'glib2=2.74.6' # force downgrade
+    openvpn3 session-start --config client.ovpn
+    ;;
+  "disconnect" | "d")
+    openvpn3 session-manage --disconnect --config client.ovpn
+    sudo pacman -S glib2 # go back to the updated version
+    ;;
+  *)
+    echo "I don't know what to do!" >&2
+    exit 1
+    ;;
+esac

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Words Revision
+Terminal=true
+Exec=webapps words
+Comment=Launches words Web App
+Icon=utilities-terminal
+Categories=ConsoleOnly

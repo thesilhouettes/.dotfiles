@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Libreddit
+Terminal=true
+Exec=libreddit
+Comment=Launches libreddit Web App
+Icon=utilities-terminal
+Categories=ConsoleOnly
