@@ -9,7 +9,7 @@ polybar bar &
 polybar-ctl t
 
 # set background
-feh --bg-scale ~/.local/wallpaper.png --no-feh
+feh --bg-scale ~/.local/wallpapers/island_midnight.png --no-feh
 
 killall "nm-applet"
 nm-applet &
