@@ -33,10 +33,3 @@ browser "brave %u &"
 
 # open with mpv
 macro y set browser "mpv %u" ; open-in-browser ; set browser "brave %u"
-
-# for the visualizer 
-visualizer_data_source = "/tmp/mpd.fifo"
-visualizer_output_name = "my_fifo"
-visualizer_in_stereo = "yes"
-visualizer_type = "wave_filled"
-visualizer_look = "+|"

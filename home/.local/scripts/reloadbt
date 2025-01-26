@@ -1,0 +1,6 @@
+sudo rmmod btusb
+sudo rmmod btintel
+sleep 1
+sudo modprobe btintel
+sudo modprobe btusb
+sudo systemctl restart bluetooth

@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
-Name=Libreddit
+Name=RedLib
 Terminal=true
-Exec=libreddit
-Comment=Launches libreddit Web App
+Exec=webapps redlib
+Comment=Launches RedLib Web App
 Icon=utilities-terminal
 Categories=ConsoleOnly

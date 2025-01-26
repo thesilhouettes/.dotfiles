@@ -1,5 +1,8 @@
 /* Xft.dpi: 147.35  */
 
 /* the optimal dpi is too big for my taste */
-/* it is 90% of the optimal value */
-Xft.dpi: 132.615
+/* it is 80% of the optimal value */
+Xft.dpi: 117.88
+
+Sxiv.background: #cce9ea
+Sxiv.foreground: #040c16

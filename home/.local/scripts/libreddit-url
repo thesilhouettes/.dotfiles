@@ -1,0 +1,28 @@
+#! /usr/bin/env bash
+
+subreddits=(
+	archlinux
+	unixporn
+	unix
+	linux
+	piracy
+	privacy
+	programmerhumor
+	ChineseLanguage
+	classicalchinese
+	Cantonese
+	linguisticshumor
+	languagelearningjerk
+	learnthai
+	Minecraft
+	StardewValley
+	askreddit
+	Hermitcraft
+	AnimalCrossing
+)
+
+domain="localhost:8080"
+multireddit=$(printf "%s+" "${subreddits[@]}")
+url="http://${domain}/r/${multireddit:0:-1}"
+
+echo "$url"

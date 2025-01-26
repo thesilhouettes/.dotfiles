@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+
+PROJECT_PATH="$HOME/Documents/sources"
+
+# the first line is the root, so we remove it
+chosen=$(find "$PROJECT_PATH" -maxdepth 1 -type d -printf "%P\n" | tail +2 | rofi -p "Project" -dmenu)
+
+# if there is nothing, stop the script
+[ -z "$chosen" ] && exit 1
+
+vscodium "$PROJECT_PATH/$chosen"

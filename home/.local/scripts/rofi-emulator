@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-emulator="$ANDROID_HOME/emulator/emulator"
+emulator="$ANDROID_HOME/Sdk/emulator/emulator"
 chosen=$("$emulator" -list-avds | rofi -p "Virtual Android Device" -dmenu)
 
 "$emulator" -avd "$chosen"

@@ -92,13 +92,13 @@ snippet fig "figure and label" bA
 \end{figure}
 endsnippet
 
-snippet tabl "add table" bA
+snippet tabl "add table" b
 \begin{table}[H]
-\caption{${1:Description}}
 \label{tab:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\l$1$2$3)/g}}}
 \centering
 	\begin{tabular}
 	\end{tabular}
+\caption{${1:Description}}
 \end{table}
 endsnippet
 

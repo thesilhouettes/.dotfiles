@@ -14,7 +14,7 @@ d | dedicated)
 	sudo sed -i '/mode/c\  "mode": "Dedicated",' /etc/supergfxd.conf
 	;;
 *)
-	echo "What are you trying to do?" >&2
+	echo "What are you trying to do? Use i for integratd, h for hybrid, c for compute and d for dedicated" >&2
 	exit 1
 	;;
 esac

@@ -3,12 +3,23 @@
   // force vscode to run zsh as a login shell
   // so ~/.zprofile will be read
   "terminal.integrated.profiles.linux": {
-    "zsh": { "path": "/bin/zsh", "args": ["-l", "-i"] }
+    "zsh": {
+      "path": "/bin/zsh",
+      "args": [
+        "-l",
+        "-i"
+      ]
+    }
   },
-  "workbench.startupEditor": "none",
+  "workbench.startupEditor": "welcomePage",
+  "explorer.compactFolders": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
   // formatters
+  "prettier.tabWidth": 4,
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -30,49 +41,99 @@
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  // "[rust]": {
-  //   "editor.defaultFormatter": "rust-lang.rust-analyzer"
-  // },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typst]": {
+    "editor.defaultFormatter": "myriad-dreamin.tinymist",
+    "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?"
+  },
   // "[java]": {
   //   "editor.defaultFormatter": "redhat.java"
   // },
   "editor.autoClosingQuotes": "never",
   "editor.codeActionsOnSave": {
-    "source.organizeImports": true
+    "source.organizeImports": "explicit"
   },
+  "rust-analyzer.checkOnSave": true,
+  "python.analysis.typeCheckingMode": "strict",
+  "python.analysis.autoImportCompletions": true,
+  "python.languageServer": "Jedi",
   "emmet.includeLanguages": {
     "nunjucks": "html",
     "njk": "html"
   },
+  "php.suggest.basic": false,
+  "dart.closingLabels": false,
+  "solidity.telemetry": false,
   "editor.linkedEditing": true,
-  "workbench.iconTheme": "material-icon-theme",
   "editor.fontFamily": "JetBrainsMono Nerd Font",
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
   "editor.wordWrapColumn": 80,
   "editor.wordWrap": "wordWrapColumn",
-
+  "D2.previewTheme": "default",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Articblush",
   // vim key bindings
   "vim.leader": "-",
   "vim.useSystemClipboard": true,
   "vim.insertModeKeyBindingsNonRecursive": [
     {
-      "before": ["j", "k"],
-      "after": ["<Esc>"]
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
     },
     {
-      "before": ["<C-d>"],
-      "after": ["<Esc>", "d", "d", "i"]
+      "before": [
+        "<C-d>"
+      ],
+      "after": [
+        "<Esc>",
+        "d",
+        "d",
+        "i"
+      ]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["<leader>", "<leader>"],
-      "after": [":", "t", "a", "b", "p", "<cr>"]
+      "before": [
+        "<leader>",
+        "<leader>"
+      ],
+      "after": [
+        ":",
+        "t",
+        "a",
+        "b",
+        "p",
+        "<cr>"
+      ]
     },
     {
-      "before": ["<leader>", "="],
-      "after": [":", "t", "a", "b", "n", "<cr>"]
+      "before": [
+        "<leader>",
+        "="
+      ],
+      "after": [
+        ":",
+        "t",
+        "a",
+        "b",
+        "n",
+        "<cr>"
+      ]
     }
   ],
   "files.exclude": {
@@ -83,6 +144,21 @@
     "**/CVS": false,
     "**/Thumbs.db": false
   },
-  "workbench.colorTheme": "GitHub Dark Default",
+
   "window.zoomLevel": 1,
+
+  // hex editor
+  "hexeditor.columnWidth": 16,
+  "hexeditor.showDecodedText": true,
+  "hexeditor.defaultEndianness": "little",
+  "hexeditor.inspectorType": "aside",
+
+  // typst
+  "tinymist.formatterMode": "typstyle",
+  "[typst-code]": {
+    "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?"
+  },
+
+  // coq
+  "vscoq.path": "/home/silhouette/.opam/default/bin/vscoqtop"
 }

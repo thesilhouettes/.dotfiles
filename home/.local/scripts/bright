@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /usr/bin/env bash
 
 get_brightness() {
 	CURRENT=$(brillo -G)

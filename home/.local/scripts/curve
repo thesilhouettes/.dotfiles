@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /usr/bin/env
 
 CURRENT=$(asusctl profile -p | sed 's/Active profile is \(.*\)/\1/')
 

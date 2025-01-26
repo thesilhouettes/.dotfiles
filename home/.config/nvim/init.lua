@@ -64,13 +64,17 @@ require("lazy").setup({
 			"williamboman/mason-lspconfig.nvim",
 
 			-- fancy download status for lsp servers :)
-			{ "j-hui/fidget.nvim", opts = {
-				sources = {
-					ltex = {
-						ignore = true,
-					},
-				},
-			} },
+			-- {
+			-- 	"j-hui/fidget.nvim",
+			-- 	tag = "legacy",
+			-- 	opts = {
+			-- 		sources = {
+			-- 			ltex = {
+			-- 				ignore = true,
+			-- 			},
+			-- 		},
+			-- 	},
+			-- },
 
 			-- signatures!!
 			"folke/neodev.nvim",
@@ -264,44 +268,6 @@ vim.g.vimtex_quickfix_ignore_filters = {
 	"Package hyperref Warning: Token not allowed in a PDF string",
 }
 
-vim.api.nvim_create_augroup("CompileDot", {
-	clear = true,
-})
-
-local function compile_dot_file()
-	local filename = vim.fn.expand("%")
-	local image = filename:gsub(".dot", ".png", 1)
-	pcall(function()
-		local success = os.execute("dot -Tpng " .. filename .. " >" .. image)
-		if not success then
-			print("Something is wrong")
-		end
-	end)
-end
-
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-	group = "CompileDot",
-	pattern = { "*.dot" },
-	callback = compile_dot_file,
-})
-
-local function open_viewer()
-	local filename = vim.fn.expand("%")
-	local image = filename:gsub(".dot", ".png", 1)
-	pcall(function()
-		os.execute("sxiv " .. image .. " >/dev/null 2>&1 &")
-	end)
-end
-
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-	group = "CompileDot",
-	pattern = { "*.dot" },
-	callback = open_viewer,
-	once = true,
-})
-
-vim.api.nvim_create_user_command("DotViewer", open_viewer, {})
-
 -- }}}
 
 -- markdown note taking {{{
@@ -472,7 +438,6 @@ require("nvim-treesitter.configs").setup({
 		"python",
 		"tsx",
 		"typescript",
-		"help",
 		"vim",
 		"latex",
 	},

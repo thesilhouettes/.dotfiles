@@ -79,6 +79,27 @@ alias cmk='cmake --build build'
 alias ct='ctest --test-dir build --output-on-failure'
 alias cmt='cmk && ct'
 
+# other commands
+alias cdc='cd ~/Documents/sources/'
+alias cdr='cd ~/Documents/repos/'
+alias cdt='cd ~/Documents/tutorials/'
+alias cddoc='cd ~/Documents/docs/'
+alias cdwiki='cd ~/Documents/wiki/'
+alias cdmd='cd ~/Documents/mdbooks/'
+alias cdf='cd ~/.config/'
+alias cds='cd ~/.local/share/'
+alias cdp='cd ~/Pictures/'
+alias cdv='cd ~/Videos/'
+alias cdd='cd ~/Documents/'
+alias cfv='nvim ~/.config/nvim/init.lua'
+alias cfz='nvim ~/.zprofile'
+alias cfzz='nvim ~/.config/zsh/.zshrc'
+alias ls='exa'
+alias lf='lfcd'
+alias v='vscodium'
+alias vv='vscodium .'
+alias yt='yt-dlp -o "%(title)s.%(ext)s"'
+
 # so that homeshick can be directly invoked in the command line
 homeshick () {
   if [ "$1" = "cd" ] && [ -n "$2" ]; then
@@ -89,3 +110,12 @@ homeshick () {
     "${HOMESHICK_DIR:-$HOME/.homesick/repos/homeshick}/bin/homeshick" "$@"
   fi
 }
+
+
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+[[ ! -r "$HOME/.opam/opam-init/init.zsh" ]] || source "$HOME/.opam/opam-init/init.zsh" > /dev/null 2> /dev/null
+# END opam configuration

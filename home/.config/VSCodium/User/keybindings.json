@@ -31,11 +31,13 @@
   },
   {
     "key": "ctrl+a",
-    "command": "explorer.newFile"
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus"
   },
   {
     "key": "ctrl+shift+a",
-    "command": "explorer.newFolder"
+    "command": "explorer.newFolder",
+    "when": "filesExplorerFocus"
   },
   {
     "key": "ctrl+,",
@@ -255,4 +257,9 @@
     "key": "ctrl+shift+tab",
     "command": "workbench.action.previousEditor"
   },
+  {
+    "key": "ctrl+p",
+    "command": "-extension.vim_ctrl+p",
+    "when": "editorTextFocus && vim.active && vim.use<C-p> && !inDebugRepl || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
+  }
 ]

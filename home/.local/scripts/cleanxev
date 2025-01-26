@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /usr/bin/env bash
 
 # stolen from https://wiki.archlinux.org/title/Keyboard_input#Identifying_keycodes_in_Xorg
 # this will ONLY print key code and key sym

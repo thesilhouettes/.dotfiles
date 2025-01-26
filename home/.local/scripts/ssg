@@ -1,0 +1,32 @@
+#! /usr/bin/env bash
+
+usage() {
+	echo "usage: ssg <keyname> [git command]"
+	exit 0
+}
+
+case "$1" in
+d | display)
+	KEYNAME="lanterns"
+	;;
+w | work)
+	KEYNAME="id_ed25519_swivel"
+	;;
+s | school)
+	KEYNAME="school_github"
+	;;
+b | basic)
+	KEYNAME="github"
+	;;
+h | help)
+	usage
+	;;
+*)
+	echo "You need a valid key!"
+	exit 1
+	;;
+esac
+
+echo "[INFO]: using key $KEYNAME"
+# :2 slices from the item 3 (zero indexed) to the end
+git -c core.sshCommand="ssh -i $HOME/.ssh/$KEYNAME" "${@:2}"

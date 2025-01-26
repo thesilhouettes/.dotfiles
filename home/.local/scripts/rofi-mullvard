@@ -1,0 +1,13 @@
+#! /usr/bin/env bash
+
+action=$(printf "%s\n" "connect" "disconnect" | rofi -p "Mullvard" -dmenu)
+
+if [[ "$action" == "connect" ]]; then
+	chosen=$(ls -1 /etc/wireguard | rofi -p "Choose Server" -dmenu)
+	wg-quick up "${chosen%.*}"
+else
+	echo "disconnect"
+	# xargs can trim things!
+	server=$(sudo wg show | head -1 | cut -d ':' -f 2 | xargs)
+	wg-quick down "$server"
+fi

@@ -6,10 +6,10 @@ XRESOURCES="${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources"
 [ -f "$XRESOURCES" ] && xrdb -merge "$XRESOURCES"
 
 # decrease keyboard repeat delay and increase repeat rate
-(sleep 10s && xset r rate 200 45) &
+# xset r rate 200 45
 
 # start the ibus daemon
-ibus-daemon -drxR
+# ibus-daemon -drxR
 
 # start
 # don't start anything if nothing is supplied
@@ -17,5 +17,6 @@ case "$1" in
 i3) exec i3 ;;
 awe) exec awesome ;;
 gnome) exec gnome-session ;;
+kde) exec startplasma-x11 ;;
 bs) exec bspwm ;;
 esac

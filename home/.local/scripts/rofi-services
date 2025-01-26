@@ -1,0 +1,40 @@
+#! /usr/bin/env bash
+
+services=("supergfxd" "mpd" "bluetooth" "gns3-server" "sshd" "docker" "postgresql" "libvirt" "cups" "xboxdrv")
+chosen=$(printf "%s\n" "${services[@]}" | rofi -p "Services" -dmenu)
+
+case "$chosen" in
+"supergfxd")
+	systemctl start supergfxd
+	;;
+"mpd")
+	systemctl start --user mpd
+	;;
+"bluetooth")
+	systemctl start bluetooth
+	;;
+"gns3-server")
+	systemctl start "gns3-server@$USER"
+	;;
+"sshd")
+	systemctl start sshd
+	;;
+"docker")
+	systemctl start docker
+	;;
+"postgresql")
+	systemctl start postgresql
+	;;
+"libvirt")
+	systemctl start libvirtd
+	;;
+"cups")
+	systemctl start cups
+	;;
+"xboxdrv")
+	systemctl start xboxdrv
+	;;
+*)
+	echo "This is not a valid service."
+	;;
+esac

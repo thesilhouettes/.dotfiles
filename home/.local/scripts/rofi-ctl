@@ -1,28 +1,65 @@
-#! /bin/sh
+#! /usr/bin/env bash
 
-LOCK="Lock 🔒"
-SUSPEND="Suspend 💤"
-SHUTDOWN="Shutdown 🔌"
-RESTART="Restart 💻"
-LOGOUT="Logout 🔑"
+options=("Lock 🔒" "Suspend 💤" "Shutdown 🔌" "Restart 💻" "Logout 🔑")
 
-chosen=$(printf "%s\n%s\n%s\n%s\n%s" "$LOCK" "$SUSPEND" "$SHUTDOWN" "$RESTART" "$LOGOUT" | rofi -p "Power" -dmenu)
+chosen=$(printf "%s\n" "${options[@]}" | rofi -p "Power" -dmenu)
+
+ask_graphics() {
+	mode=("No Change" "Integrated" "Hybrid" "Dedicated" "Compute")
+	# we don't have to care about no change
+	graphics=$(printf "%s\n" "${mode[@]}" | rofi -p "Graphics Mode" -dmenu)
+	case "$graphics" in
+	"Integrated")
+		supergfxctl -m Integrated
+		graphics i
+		;;
+	"Hybrid")
+		supergfxctl -m Hybrid
+		graphics h
+		;;
+	"Dedicated")
+		supergfxctl -m Dedicated
+		graphics d
+		;;
+	"Compute")
+		supergfxctl -m Compute
+		graphics c
+		;;
+	esac
+}
 
 case "$chosen" in
-"$LOCK")
+"${options[0]}")
 	betterlockscreen -l
 	;;
-"$SUSPEND")
+"${options[1]}")
 	systemctl suspend
 	;;
-"$SHUTDOWN")
-	shutdown now
+"${options[2]}")
+	ask_graphics
+	sleep 6s
+	if [[ "$XDG_CURRENT_DESKTOP" == "KDE" ]]; then
+		qdbus org.kde.Shutdown /Shutdown logoutAndShutdown
+	else
+		shutdown now
+	fi
 	;;
-"$RESTART")
-	reboot
+"${options[3]}")
+	ask_graphics
+	sleep 6s
+	if [[ "$XDG_CURRENT_DESKTOP" == "KDE" ]]; then
+		qdbus org.kde.Shutdown /Shutdown logoutAndReboot
+	else
+		reboot
+	fi
 	;;
-"$LOGOUT")
-	bspc quit
+"${options[4]}")
+	ask_graphics
+	if [[ "$XDG_CURRENT_DESKTOP" == "KDE" ]]; then
+		qdbus org.kde.Shutdown /Shutdown logout
+	else
+		bspc quit
+	fi
 	;;
 *) ;;
 esac

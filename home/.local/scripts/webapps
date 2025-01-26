@@ -1,26 +1,27 @@
 #! /usr/bin/env bash
 
 open() {
-  echo "$2"
-  "$BROWSER" "http://localhost:$1/$2"
+	echo "$2"
+	"$BROWSER" "http://localhost:$1/$2"
 }
 
 case "$1" in
-  "words")
-    live-server --port=10000 "$HOME/Documents/thai_words/app/"
-    # open 10000 'src'
-    ;;
-  "wiki")
-    cd "$HOME/.local/sources/swallow/" || exit 1
-    open 3000 &
-    npm run start:dev
-    ;;
-  "libreddit")
-    open 8080 &
-    libreddit
-    ;;
-  *)
-    echo "I don't know what to do!" >&2
-    exit 1
-    ;;
+"words")
+	# open 10000 &
+	cd "$HOME/Documents/sources/lang-helper/" || exit 1
+	PORT=10000 npm run start
+	;;
+"wiki")
+	cd "$HOME/Documents/sources/swallow/" || exit 1
+	open 3000 &
+	npm run start:dev
+	;;
+"redlib")
+	open 8080 &
+	redlib
+	;;
+*)
+	echo "I don't know what to do!" >&2
+	exit 1
+	;;
 esac
