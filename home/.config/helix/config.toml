@@ -1,0 +1,32 @@
+theme = "catppuccin_mocha"
+
+[keys.normal]
+0 = "goto_line_start"
+"$" = "goto_line_end"
+C-s = ":write"
+G = "goto_last_line"
+C-o = ":config-reload"
+"C-S-o" = ":config-open"
+# switch to select mode and highlight the current line
+S-v = ["select_mode", "extend_to_line_bounds"]
+
+# tinymist special keybindings
+"S-`" = ":lsp-workspace-command tinymist.pinMain %sh{realpath %{buffer_name}}"
+
+[keys.insert]
+j = { k = "normal_mode" }
+
+[keys.select]
+0 = "goto_line_start"
+"$" = "goto_line_end"
+r = ":reflow"
+
+[editor]
+text-width = 80
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.soft-wrap]
+enable = true
+wrap-at-text-width = true

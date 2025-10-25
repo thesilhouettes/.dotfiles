@@ -1,13 +1,22 @@
-#! /usr/bin/env bash
+#! /usr/bin/env fish
 
-action=$(printf "%s\n" "connect" "disconnect" | rofi -p "Mullvard" -dmenu)
+set connect Connect
+set disconnect Disconnect
+set quit Quit 
+set options $connect $disconnect $quit
 
-if [[ "$action" == "connect" ]]; then
-	chosen=$(ls -1 /etc/wireguard | rofi -p "Choose Server" -dmenu)
-	wg-quick up "${chosen%.*}"
-else
-	echo "disconnect"
-	# xargs can trim things!
-	server=$(sudo wg show | head -1 | cut -d ':' -f 2 | xargs)
-	wg-quick down "$server"
-fi
+set action $(printf "%s\n" $options | rofi -p "Mullvard" -dmenu)
+
+if test $connect = $action
+    # the file names are <server>.conf, but
+    # wg-quick does not want the conf part
+    set chosen $(ls -1 /etc/wireguard | rofi -p "Choose Server" -dmenu | string replace -r "\..*" "")
+    echo "chosen server: $chosen"
+    wg-quick up $chosen
+else if test $disconnect = $action 
+    # fish cares about the spaces, we have to trim it
+    set server $(sudo wg show | head -1 | cut -d ':' -f 2 | string trim)
+    echo "shutting down server: $chosen"
+    wg-quick down $server
+end
+

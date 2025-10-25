@@ -100,6 +100,8 @@ alias v='vscodium'
 alias vv='vscodium .'
 alias yt='yt-dlp -o "%(title)s.%(ext)s"'
 
+alias monerod=monerod --data-dir "$XDG_DATA_HOME"/bitmonero
+
 # so that homeshick can be directly invoked in the command line
 homeshick () {
   if [ "$1" = "cd" ] && [ -n "$2" ]; then

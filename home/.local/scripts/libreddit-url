@@ -1,28 +1,10 @@
-#! /usr/bin/env bash
+#! /usr/bin/env fish
 
-subreddits=(
-	archlinux
-	unixporn
-	unix
-	linux
-	piracy
-	privacy
-	programmerhumor
-	ChineseLanguage
-	classicalchinese
-	Cantonese
-	linguisticshumor
-	languagelearningjerk
-	learnthai
-	Minecraft
-	StardewValley
-	askreddit
-	Hermitcraft
-	AnimalCrossing
-)
+set subreddits archlinux unixporn unix linux piracy privacy programmerhumor ChineseLanguage classicalchinese Cantonese linguisticshumor languagelearningjerk learnthai Minecraft StardewValley askreddit Hermitcraft AnimalCrossing RimWorld ThirdLifeSMP engrish keming
 
-domain="localhost:8080"
-multireddit=$(printf "%s+" "${subreddits[@]}")
-url="http://${domain}/r/${multireddit:0:-1}"
+set domain "localhost:9090"
+# printf will print an extra + at the end
+set multireddit $(printf "%s+" $subreddits | string sub -e -1)
 
-echo "$url"
+# output the final url
+echo "http://$domain/r/$multireddit"

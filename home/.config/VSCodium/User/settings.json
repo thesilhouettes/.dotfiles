@@ -1,164 +1,127 @@
 {
-  // terminal settings
-  // force vscode to run zsh as a login shell
-  // so ~/.zprofile will be read
-  "terminal.integrated.profiles.linux": {
-    "zsh": {
-      "path": "/bin/zsh",
-      "args": [
-        "-l",
-        "-i"
-      ]
-    }
-  },
-  "workbench.startupEditor": "welcomePage",
-  "explorer.compactFolders": false,
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "files.associations": {
-    "*.css": "tailwindcss"
-  },
-  // formatters
-  "prettier.tabWidth": 4,
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[rust]": {
-    "editor.defaultFormatter": "rust-lang.rust-analyzer"
-  },
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typst]": {
-    "editor.defaultFormatter": "myriad-dreamin.tinymist",
-    "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?"
-  },
-  // "[java]": {
-  //   "editor.defaultFormatter": "redhat.java"
-  // },
-  "editor.autoClosingQuotes": "never",
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit"
-  },
-  "rust-analyzer.checkOnSave": true,
-  "python.analysis.typeCheckingMode": "strict",
-  "python.analysis.autoImportCompletions": true,
-  "python.languageServer": "Jedi",
-  "emmet.includeLanguages": {
-    "nunjucks": "html",
-    "njk": "html"
-  },
-  "php.suggest.basic": false,
-  "dart.closingLabels": false,
-  "solidity.telemetry": false,
-  "editor.linkedEditing": true,
-  "editor.fontFamily": "JetBrainsMono Nerd Font",
-  "editor.formatOnSave": true,
-  "editor.tabSize": 2,
-  "editor.wordWrapColumn": 80,
-  "editor.wordWrap": "wordWrapColumn",
-  "D2.previewTheme": "default",
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "Articblush",
-  // vim key bindings
-  "vim.leader": "-",
-  "vim.useSystemClipboard": true,
-  "vim.insertModeKeyBindingsNonRecursive": [
-    {
-      "before": [
-        "j",
-        "k"
-      ],
-      "after": [
-        "<Esc>"
-      ]
+    // terminal settings
+    // force vscode to run zsh as a login shell
+    // so ~/.zprofile will be read
+    "terminal.integrated.profiles.linux": {
+        "zsh": {
+            "path": "/bin/zsh",
+            "args": ["-l", "-i"]
+        }
     },
-    {
-      "before": [
-        "<C-d>"
-      ],
-      "after": [
-        "<Esc>",
-        "d",
-        "d",
-        "i"
-      ]
-    }
-  ],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": [
-        "<leader>",
-        "<leader>"
-      ],
-      "after": [
-        ":",
-        "t",
-        "a",
-        "b",
-        "p",
-        "<cr>"
-      ]
+    "workbench.startupEditor": "welcomePage",
+    "explorer.compactFolders": false,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "files.associations": {
+        "*.css": "tailwindcss"
     },
-    {
-      "before": [
-        "<leader>",
-        "="
-      ],
-      "after": [
-        ":",
-        "t",
-        "a",
-        "b",
-        "n",
-        "<cr>"
-      ]
-    }
-  ],
-  "files.exclude": {
-    "**/.DS_Store": false,
-    "**/.git": false,
-    "**/.hg": false,
-    "**/.svn": false,
-    "**/CVS": false,
-    "**/Thumbs.db": false
-  },
+    // formatters
+    "prettier.tabWidth": 4,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[rust]": {
+        "editor.defaultFormatter": "rust-lang.rust-analyzer"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typst]": {
+        "editor.defaultFormatter": "myriad-dreamin.tinymist",
+        "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?"
+    },
+    // "[java]": {
+    //   "editor.defaultFormatter": "redhat.java"
+    // },
+    "editor.autoClosingQuotes": "never",
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+    "rust-analyzer.checkOnSave": true,
+    "python.analysis.typeCheckingMode": "strict",
+    "python.analysis.autoImportCompletions": true,
+    "python.languageServer": "Jedi",
+    "emmet.includeLanguages": {
+        "nunjucks": "html",
+        "njk": "html"
+    },
+    "php.suggest.basic": false,
+    "dart.closingLabels": false,
+    "solidity.telemetry": false,
+    "editor.linkedEditing": true,
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.wordWrapColumn": 80,
+    "editor.wordWrap": "wordWrapColumn",
+    "D2.previewTheme": "default",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Articblush",
+    // vim key bindings
+    "vim.leader": "-",
+    "vim.useSystemClipboard": true,
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        },
+        {
+            "before": ["<C-d>"],
+            "after": ["<Esc>", "d", "d", "i"]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "<leader>"],
+            "after": [":", "t", "a", "b", "p", "<cr>"]
+        },
+        {
+            "before": ["<leader>", "="],
+            "after": [":", "t", "a", "b", "n", "<cr>"]
+        }
+    ],
+    "files.exclude": {
+        "**/.DS_Store": false,
+        "**/.git": false,
+        "**/.hg": false,
+        "**/.svn": false,
+        "**/CVS": false,
+        "**/Thumbs.db": false
+    },
 
-  "window.zoomLevel": 1,
+    "window.zoomLevel": 1,
 
-  // hex editor
-  "hexeditor.columnWidth": 16,
-  "hexeditor.showDecodedText": true,
-  "hexeditor.defaultEndianness": "little",
-  "hexeditor.inspectorType": "aside",
+    // hex editor
+    "hexeditor.columnWidth": 16,
+    "hexeditor.showDecodedText": true,
+    "hexeditor.defaultEndianness": "little",
+    "hexeditor.inspectorType": "aside",
 
-  // typst
-  "tinymist.formatterMode": "typstyle",
-  "[typst-code]": {
-    "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?"
-  },
-
-  // coq
-  "vscoq.path": "/home/silhouette/.opam/default/bin/vscoqtop"
+    // typst
+    "tinymist.formatterMode": "typstyle",
+    "[typst-code]": {
+        "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?"
+    },
+    "window.restoreWindows": "none"
 }

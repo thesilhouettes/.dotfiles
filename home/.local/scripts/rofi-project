@@ -1,11 +1,12 @@
-#! /usr/bin/env bash
+#! /usr/bin/env fish
 
-PROJECT_PATH="$HOME/Documents/sources"
+set project_dir "$HOME/Documents/sources"
 
 # the first line is the root, so we remove it
-chosen=$(find "$PROJECT_PATH" -maxdepth 1 -type d -printf "%P\n" | tail +2 | rofi -p "Project" -dmenu)
+set chosen $(find $project_dir -maxdepth 1 -type d -printf "%P\n" | tail +2 | rofi -p "Project" -dmenu)
 
 # if there is nothing, stop the script
-[ -z "$chosen" ] && exit 1
+if test -n "$chosen"
+  vscodium "$PROJECT_PATH/$chosen"
+end
 
-vscodium "$PROJECT_PATH/$chosen"
